@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">View</string>
+    <string name="pic_pull">图片下拉放大</string>
+    <string name="qq_step">qq计步器</string>
+    <string name="color_text">TextView显示不同颜色</string>
+</resources>
