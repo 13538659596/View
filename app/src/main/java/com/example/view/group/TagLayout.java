@@ -8,18 +8,19 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+
+import com.example.view.adpter.TagLayoutAdapter;
 
 public class TagLayout extends ViewGroup{
 
 	private List<List<View>> mChildViews = new ArrayList<List<View>>();
+	private TagLayoutAdapter mAdapter;
 
 	public TagLayout(Context context) {
 		this(context, null);
 		// TODO Auto-generated constructor stub
 	}
-
-
-
 	public TagLayout(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 		// TODO Auto-generated constructor stub
@@ -32,7 +33,6 @@ public class TagLayout extends ViewGroup{
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		// TODO Auto-generated method stub
-		Log.e("------>", "onMeasure  ");
 		mChildViews.clear();
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 	     int lineWidth = getPaddingLeft();
@@ -51,12 +51,11 @@ public class TagLayout extends ViewGroup{
 			ViewGroup.MarginLayoutParams params = (MarginLayoutParams)child.getLayoutParams();
 			  measureChild(child, widthMeasureSpec, heightMeasureSpec);
 			  if(lineWidth + child.getMeasuredWidth() + params.leftMargin + params.rightMargin> width) {
-				  Log.e(">>>>>", " i " + i);
 				  //换行
 				  Log.e("------->", "================================");
-				  hight += child.getMeasuredHeight()+ params.topMargin + params.bottomMargin;
-				  lineWidth = 0;
+				  hight += maxChildLineHight;   //高度叠加每行View的最高高度
 				  mChildViews.add(chidViews);
+				  lineWidth = 0;
 				  maxChildLineHight = 0;
 				  chidViews = new ArrayList<>();
 			  }
@@ -64,7 +63,6 @@ public class TagLayout extends ViewGroup{
 			  	//添加最后一行
 				mChildViews.add(chidViews);
 			}
-
 			lineWidth += child.getMeasuredWidth()+ params.leftMargin + params.rightMargin;
 			chidViews.add(child);
 			maxChildLineHight = Math.max(child.getMeasuredHeight()+ params.topMargin + params.bottomMargin, maxChildLineHight);
@@ -84,6 +82,7 @@ public class TagLayout extends ViewGroup{
 		Log.e("------->", "行数  "  + mChildViews.size());
 		for(List<View> childViews : mChildViews) {
 			left = getPaddingLeft();
+			int lineMaxHight = 0;
 			for(View childView : childViews) {
 				//获取子view的margin
 				ViewGroup.MarginLayoutParams params = (MarginLayoutParams)childView.getLayoutParams();
@@ -91,13 +90,14 @@ public class TagLayout extends ViewGroup{
 				int childTop = top + params.topMargin;
 				right = left + childView.getMeasuredWidth();
 				bottom = childTop + childView.getMeasuredHeight();
-				//Log.e("------->", " top " + top + "  bottom  " + bottom);
-				//Log.e("------->", " left " + left + "  right  " + right);
 				childView.layout(left, childTop, right, bottom);
 				left += childView.getMeasuredWidth() + params.leftMargin;
+
+				//获取没行最高的子view的高度
+				int childHight = childView.getMeasuredHeight() + params.bottomMargin + params.topMargin;
+				lineMaxHight = Math.max(childHight, lineMaxHight);
 			}
-			ViewGroup.MarginLayoutParams params = (MarginLayoutParams)childViews.get(0).getLayoutParams();
-			top += childViews.get(0).getMeasuredHeight() + params.topMargin + params.bottomMargin;
+			top += lineMaxHight;
 		}
 	}
 
@@ -105,4 +105,20 @@ public class TagLayout extends ViewGroup{
 	public LayoutParams generateLayoutParams(AttributeSet attrs) {
 		return new MarginLayoutParams(getContext(), attrs);
 	}
+
+	public void setAdater(TagLayoutAdapter adapter) {
+	    if(adapter == null) {
+	        return;
+        }
+        //先清空容器中所有view，在循环添加
+        removeAllViews();
+        mAdapter = null;
+        mAdapter = adapter;
+
+	    int childViewCount = mAdapter.getCount();
+	    for (int i = 0; i < childViewCount; i++) {
+            View childView = mAdapter.getView(i, this);
+            addView(childView);
+        }
+    }
 }

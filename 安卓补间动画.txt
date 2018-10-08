@@ -1,0 +1,103 @@
+一.分类
+
+	alpha:渐变透明度动画效果
+
+	scale:渐变缩放动画效果
+
+	translate:渐变位置移动动画效果
+
+	rotate:渐变旋转动画效果，这四种动画能够分别带来不同的效果体验，又能混合在一起完成酷炫的动画效果。
+
+从Animation类继承的属性(公有属性)
+	android:duration:							动画执行的时间，以毫秒为单位
+
+	android:fillEnabled:true|false,true:		动画结束时还原到开始动画前的状态
+
+	android:fillBefore:							如果fillEnabled的值为true，它的值才有意义，否则没有意义默认值是true，视图会停留在动画开始的状态
+
+	android:fillAfter:							设置的是在这个动画结束后是否保留这个动画的最后一帧的效果填充后面的动画,它的设置不受fillEnabled的影响
+
+	android:repeatMode:reverse|restart:			重复类型:    reverse:表示倒序回访：
+														     restart:表示重新放一遍，这个属性必须与repeatCount联合使用,因为它的前提是重复,即重复播放时的播放类型。
+
+	android:repeatCount:						动画重复的次数(注意是重复的次数)，可以是你想循环播放的次数，也是可以是infinite:表示无限循环
+
+	android:interpolator:						设定的插值器，它主要用来为动画设置一些特殊的效果，比方说：加速运动、减速运动、动画结束的时候弹 起等等
+
+
+	rotate特有属性:
+		android:fromDegrees：					动画开始时旋转的角度位置，float类型，正值代表顺时针方向度数，负值代码逆时针方向度数
+
+		android:toDegrees: 						动画结束时旋转到的角度位置，float类型，正值代表顺时针方向度数，负值代码逆时针方向度数
+
+		android:pivotX:							旋转点X轴坐标，float类型，可以是数值、百分数、百分数p三种样式，比如50、50%、50%p，当为数值时，
+												表示在当前View的左上角，即原点处加上50px，做为旋转点X坐标,如果是50%;表示在当前控件的左上角加上自己宽度的50%做为旋转点X坐标;如果是50%p，
+												那么就是表示在当前控件的左上角加上父控件宽度的50%做为旋转点X坐标。
+
+		android:pivotY:							旋转点Y轴坐标，取值及意义跟android:pivotX一样。
+
+
+	translate动画独有的属性
+		android:fromXDelta:						起始点X轴坐标，可以是数值、百分数、百分数p 三种样式，具体意义在roate已经演示过。
+		android:fromYDelta：					起始点Y坐标，可以是数值、百分数、百分数p三种样式。
+		android:toXDelta：						结束点X坐标
+		android:toYDelta:						结束点Y坐标
+
+	Alpha的特有属性
+		android:fromAlpha:						动画开始时的透明度，变化范围为0.0-1.0,0.0表示完全透明，1.0表示完全不透明
+
+		android:toAlpha：						动画结束时的透明度，变化范围和意义同上。
+
+
+	scale 独有属性
+		android:fromXScale						起始的X方向上相对自身的缩放比例,类型float，比如1.0代表自身无变化，0.5代表起始时缩小一倍，2.0代表放大一倍
+		android:toXScale:						结尾的X方向上相对自身的缩放比例,类型float
+		android:fromYScale:						起始的Y方向上相对自身的缩放比例,类型float
+		android:toYScale:						结尾的Y方向上相对自身的缩放比例,类型float
+		android:pivotX: 						缩放起点X轴坐标，可以是数值、百分数、百分数p ,具体意义同retote
+		android:pivotY:							缩放起点Y轴坐标，取值及意义与pivotX一样
+
+
+set标签的使用:
+	set标签了从它的名字我们也能够猜出来它是干什么用的，它就是一组动画的集合，也就是说我们可以让一个View同时执行多个动画，
+	set标签自已是没有属性的，他的属性都是从Animation继承而来，但当它们用于Set标签时，就会对Set标签下的所有子控件都产生作用。
+
+	android:duration:							动画执行的时间，以毫秒为单位
+	android:fillEnabled:true|false,true:		动画结束时还原到开始动画前的状态,false?
+	android:fillBefore:							与fillEnabled相同
+	android:fillAfter:true|false,true:			动画结束时，将保持动画最后时的状态
+	android:repeatMode:reverse|restart,			重复类型,reverse:表示倒序回访,restart:表示重新放一遍这个属性必须与repeatCount联合使用，因为牵扯到重复，即重复播放时的播放类型。
+	android:repeatCount:						动画重复的次数，可以是你想循环播放的次数，也是可以是infinite:表示无限循环
+	android:interpolator:						设定的插值器，它主要用来为动画设置一些特殊的效果，比方说：加速运动、减速运动、动画结束的时候弹起等等。
+
+
+插值器
+Interpolator对象						资源ID													功能作用                       可修改属性
+
+AccelerateDecelerateInterpolator		@android:anim/accelerate_decelerate_interpolator		先加速再减速					无
+
+AccelerateInterpolator					@android:anim/accelerate_interpolator 					加速							android:factor 浮点值，加速速率，默认为1
+
+AnticipateInterpolator					@android:anim/anticipate_interpolator					先回退一小步然后加速前进		android:tension 浮点值，起始点后退的张力、拉力数，默认为2
+
+AnticipateOvershootInterpolator			@android:anim/anticipate_overshoot_interpolator   		先回退一小步然后加速前进，		android:tension 同上 android:extraTension
+																								超出终点一小步后再回到终点		浮点值，拉力的倍数，默认为1.5（2  * 1.5
+
+BounceInterpolator						@android:anim/bounce_interpolator						最后阶段弹球效果				无
+
+CycleInterpolator						@android:anim/cycle_interpolator						周期运动						android:cycles 整数值，循环的个数，默认为1
+
+DecelerateInterpolator				 	@android:anim/decelerate_interpolator 					减速							android:factor 浮点值，减速的速率，默认为1
+
+LinearInterpolator						@android:anim/linear_interpolator						匀速							无
+
+OvershootInterpolator					@android:anim/overshoot_interpolator					快速到达终点并超出				浮点值，超出终点后的张力、拉力，默认为2
+																								一小步最后回到终点
+
+
+
+
+
+
+
+

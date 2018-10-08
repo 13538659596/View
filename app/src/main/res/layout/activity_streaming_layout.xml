@@ -8,9 +8,11 @@
     tools:context="com.example.view.ListView.StreamingLayoutActivity">
 
     <com.example.view.group.TagLayout
+        android:id="@+id/taglayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ff0000">
+<!--
 
         <TextView
             android:layout_margin="10dp"
@@ -43,6 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="和经济和打底裤哈萨克很大的的add开始看大叔控"/>
+-->
 
 
     </com.example.view.group.TagLayout>
