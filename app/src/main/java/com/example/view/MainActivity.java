@@ -11,6 +11,7 @@ import com.example.view.ListView.RatingBarActivity;
 import com.example.view.ListView.ShapeActivity;
 import com.example.view.ListView.StreamingLayoutActivity;
 import com.example.view.ListView.ViewPageActivity;
+import com.example.view.touch.TouchActivity;
 
 import butterknife.OnClick;
 public class MainActivity extends BaseActivity {
@@ -58,6 +59,10 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.button7)
     public void streamingLayout() {
         startActivity(new Intent(this, StreamingLayoutActivity.class));}
+
+    @OnClick(R.id.button8)
+    public void showTouch() {
+        startActivity(new Intent(this, TouchActivity.class));}
 
 
 
