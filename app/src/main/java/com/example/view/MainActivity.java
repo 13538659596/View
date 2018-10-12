@@ -8,6 +8,7 @@ import com.example.view.ListView.ColorTextActivity;
 import com.example.view.ListView.ListpicActivity;
 import com.example.view.ListView.QQStepActivirt;
 import com.example.view.ListView.RatingBarActivity;
+import com.example.view.ListView.ScrollActivity;
 import com.example.view.ListView.ShapeActivity;
 import com.example.view.ListView.StreamingLayoutActivity;
 import com.example.view.ListView.ViewPageActivity;
@@ -63,6 +64,11 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.button8)
     public void showTouch() {
         startActivity(new Intent(this, TouchActivity.class));}
+
+    @OnClick(R.id.button9)
+    public void scroll() {
+        startActivity(new Intent(this, ScrollActivity.class));}
+
 
 
 

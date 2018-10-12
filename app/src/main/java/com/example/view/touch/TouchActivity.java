@@ -26,6 +26,7 @@ public class TouchActivity extends Activity implements OnClickListener, OnTouchL
 		myTextView = (TextView)findViewById(R.id.myTextView);
 		myTextView.setOnClickListener(this);
 		//myTextView.setOnTouchListener(this);
+
 	}
 	@Override
 	public void onClick(View view) {
@@ -106,8 +107,7 @@ public class TouchActivity extends Activity implements OnClickListener, OnTouchL
 			default:
 				break;
 		}
-		//return super.onTouchEvent(event);
-		return false;
+		return super.onTouchEvent(event);
+		//return true;
 	}
-
 }
