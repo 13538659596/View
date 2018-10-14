@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.example.view.ListView.ColorTextActivity;
 import com.example.view.ListView.ListpicActivity;
+import com.example.view.ListView.QQScrollActivity;
 import com.example.view.ListView.QQStepActivirt;
 import com.example.view.ListView.RatingBarActivity;
 import com.example.view.ListView.ScrollActivity;
@@ -68,6 +69,10 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.button9)
     public void scroll() {
         startActivity(new Intent(this, ScrollActivity.class));}
+
+    @OnClick(R.id.button10)
+    public void showQQ() {
+        startActivity(new Intent(this, QQScrollActivity.class));}
 
 
 

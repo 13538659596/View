@@ -4,16 +4,12 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.HorizontalScrollView;
-import android.widget.LinearLayout;
 
 import com.example.view.R;
 import com.example.view.utils.ScreenUtils;
@@ -22,21 +18,21 @@ import com.example.view.utils.ScreenUtils;
  * Created by TheShy on 2018/10/10 19:08.
  * Email:406262584@qq.com
  */
-public class SlidingMenu extends HorizontalScrollView{
+public class SlidingMenuForQQ extends HorizontalScrollView{
     private  int menuWidth; //菜单页的宽度
     private View contentView, menu;
     private GestureDetector gestureDetector;
     private boolean menuIsOpen = false;
     private boolean interception = false;   //处理了快速滑动事件后，直接拦截onTouchEvent事件
-    public SlidingMenu(Context context) {
+    public SlidingMenuForQQ(Context context) {
         this(context, null);
     }
 
-    public SlidingMenu(Context context, AttributeSet attrs) {
+    public SlidingMenuForQQ(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public SlidingMenu(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SlidingMenuForQQ(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         TypedArray typedArray = context.obtainStyledAttributes(attrs,R.styleable.SlidingMenu);
 
@@ -103,21 +99,20 @@ public class SlidingMenu extends HorizontalScrollView{
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        Log.e("===========", ev.getAction()  + "  拦截 " + ev.getX());
-      /*  interception = false;
+        interception = false;
         if(menuIsOpen) {
             if(ev.getX() > menuWidth) {
-                //closeMenu();
+                closeMenu();
                 interception = true;
                 return true;
             }
-        }*/
+        }
         return super.onInterceptTouchEvent(ev);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
-    Log.e("=========", "onTouchEvent   " + ev.getAction());
+
         if(interception) {
             return true;
         }
@@ -129,7 +124,7 @@ public class SlidingMenu extends HorizontalScrollView{
 
         if(ev.getAction() == MotionEvent.ACTION_UP) {
             //根据滚动距离判断是关闭还是打开Menu
-            int moveX = getScrollX();     //获取View的滚动距离
+            int moveX = getScrollX();     //获取怎么View的滚动距离
             //Log.e("=========", moveX + "     " + MenuWidth/2);
             if(moveX > menuWidth / 2) {
                 closeMenu();
@@ -171,24 +166,18 @@ public class SlidingMenu extends HorizontalScrollView{
         //Log.e("========", "rightScale  " + rightScale);
 
         //设置缩放中心点位置
-        ViewCompat.setPivotX(contentView, 0);
+        /*ViewCompat.setPivotX(contentView, 0);
         ViewCompat.setPivotY(contentView,contentView.getMeasuredHeight() / 2);
         ViewCompat.setScaleX(contentView, rightScale);
-        ViewCompat.setScaleY(contentView, rightScale);
+        ViewCompat.setScaleY(contentView, rightScale);*/
 
         //透明度
-        float alpha = 0.2f + 0.8f * (1 - scale);
+       /* float alpha = 0.2f + 0.8f * (1 - scale);
         menu.setAlpha(alpha);
 
         float leftScale = 0.7f + 0.3f * (1 - scale);
         ViewCompat.setScaleX(menu, leftScale);
-        ViewCompat.setScaleY(menu, leftScale);
-        ViewCompat.setTranslationX(menu, 0.25f * l );
-    }
-
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        Log.e("=========", "dispatchTouchEvent   " + ev.getAction());
-        return super.dispatchTouchEvent(ev);
+        ViewCompat.setScaleY(menu, leftScale);*/
+        ViewCompat.setTranslationX(menu, 0.7f * l );
     }
 }

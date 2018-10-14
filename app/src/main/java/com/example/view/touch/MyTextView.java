@@ -52,20 +52,20 @@ public class MyTextView extends TextView{
 		// TODO Auto-generated method stub
 		super.onTouchEvent(event);
 		count++;
-		switch(event.getAction()) {
+		switch (event.getAction()) {
 			case MotionEvent.ACTION_DOWN:
-				Log.e(TAG,"onTouchEvent  ACTION_DOWN");
+				Log.e(TAG, "onTouchEvent  ACTION_DOWN");
 				performClick();
 				//return true;
 				break;
 			case MotionEvent.ACTION_MOVE:
-				Log.e(TAG,"onTouchEvent  ACTION_MOVE");
+				Log.e(TAG, "onTouchEvent  ACTION_MOVE");
 				break;
 			case MotionEvent.ACTION_UP:
-				Log.e(TAG,"onTouchEvent  ACTION_UP");
+				Log.e(TAG, "onTouchEvent  ACTION_UP");
 				break;
 			case MotionEvent.ACTION_CANCEL:
-				Log.e(TAG,"onTouchEvent  ACTION_CANCEL");
+				Log.e(TAG, "onTouchEvent  ACTION_CANCEL");
 				break;
 			default:
 				break;
@@ -75,5 +75,13 @@ public class MyTextView extends TextView{
 		return true;
 		//return super.onTouchEvent(event);
 	}
+
+
+
+
+
+
+
+
 
 }

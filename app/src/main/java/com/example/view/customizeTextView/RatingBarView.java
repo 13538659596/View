@@ -74,12 +74,12 @@ public class RatingBarView extends View {
             //case MotionEvent.ACTION_DOWN:
 
             case MotionEvent.ACTION_MOVE:
-
+                Log.e(">>>>>>>>>", "ACTION_MOVE");
             //case MotionEvent.ACTION_UP:
                 changeRating(position);
                 break;
         }
-        return true;
+        return super.onTouchEvent(event);
     }
 
     private void changeRating(int rating) {
