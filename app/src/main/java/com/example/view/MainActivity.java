@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.view.ListView.ColorTextActivity;
+import com.example.view.ListView.DragHelpActivity;
 import com.example.view.ListView.ListpicActivity;
 import com.example.view.ListView.QQScrollActivity;
 import com.example.view.ListView.QQStepActivirt;
@@ -73,6 +74,10 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.button10)
     public void showQQ() {
         startActivity(new Intent(this, QQScrollActivity.class));}
+
+    @OnClick(R.id.button11)
+    public void dragHelp() {
+        startActivity(new Intent(this, DragHelpActivity.class));}
 
 
 

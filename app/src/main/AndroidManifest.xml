@@ -36,6 +36,8 @@
         </activity>
         <activity android:name=".ListView.QQScrollActivity">
         </activity>
+        <activity android:name=".ListView.DragHelpActivity">
+        </activity>
     </application>
 
 </manifest>
