@@ -50,7 +50,7 @@ public class MyTextView extends TextView{
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		// TODO Auto-generated method stub
-		super.onTouchEvent(event);
+	/*	super.onTouchEvent(event);
 		count++;
 		switch (event.getAction()) {
 			case MotionEvent.ACTION_DOWN:
@@ -70,10 +70,10 @@ public class MyTextView extends TextView{
 			default:
 				break;
 		}
-		Log.e(TAG, " onTouchEvent  " + count);
+		Log.e(TAG, " onTouchEvent  " + count);*/
 		//Log.e(TAG,"onTouchEvent  result  "  + result);
-		return true;
-		//return super.onTouchEvent(event);
+		//return true;
+		return super.onTouchEvent(event);
 	}
 
 

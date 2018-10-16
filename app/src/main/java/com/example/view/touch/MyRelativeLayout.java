@@ -10,7 +10,6 @@ import android.widget.RelativeLayout;
 public class MyRelativeLayout extends RelativeLayout{
 
 	private static final String TAG = "MyRelativeLayout";
-	private int count= 0;
 	public MyRelativeLayout(Context context, AttributeSet attrs,
 							int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
@@ -54,11 +53,10 @@ public class MyRelativeLayout extends RelativeLayout{
 	}
 
 
-	/*@Override
+
+		@Override
 	public boolean onInterceptTouchEvent(MotionEvent event) {
 		// TODO Auto-generated method stub
-		Log.e(TAG, "递归次数:" + count);
-		count++;
 		switch(event.getAction()) {
 			case MotionEvent.ACTION_DOWN:
 				Log.e(TAG,"onInterceptTouchEvent  ACTION_DOWN");
@@ -78,8 +76,8 @@ public class MyRelativeLayout extends RelativeLayout{
 
 		// TODO Auto-generated method stub
 		//return false;
-		return super.dispatchTouchEvent(event);
-	}*/
+		return super.onInterceptTouchEvent(event);
+	}
 
 
 

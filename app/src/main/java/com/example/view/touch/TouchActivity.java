@@ -27,6 +27,7 @@ public class TouchActivity extends Activity implements OnClickListener, OnTouchL
 		myTextView.setOnClickListener(this);
 		//myTextView.setOnTouchListener(this);
 
+
 	}
 	@Override
 	public void onClick(View view) {
@@ -65,7 +66,7 @@ public class TouchActivity extends Activity implements OnClickListener, OnTouchL
 		return false;
 	}
 
-	@Override
+	/*@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {
 		// TODO Auto-generated method stub
 		switch(ev.getAction()) {
@@ -109,5 +110,7 @@ public class TouchActivity extends Activity implements OnClickListener, OnTouchL
 		}
 		return super.onTouchEvent(event);
 		//return true;
-	}
+	}*/
+
+
 }
