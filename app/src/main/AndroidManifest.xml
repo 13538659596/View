@@ -38,6 +38,8 @@
         </activity>
         <activity android:name=".ListView.DragHelpActivity">
         </activity>
+        <activity android:name=".ListView.ImmersiveActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.example.view.ListView.ColorTextActivity;
 import com.example.view.ListView.DragHelpActivity;
+import com.example.view.ListView.ImmersiveActivity;
 import com.example.view.ListView.ListpicActivity;
 import com.example.view.ListView.QQScrollActivity;
 import com.example.view.ListView.QQStepActivirt;
@@ -79,7 +80,9 @@ public class MainActivity extends BaseActivity {
     public void dragHelp() {
         startActivity(new Intent(this, DragHelpActivity.class));}
 
-
+    @OnClick(R.id.button12)
+    public void statuBar() {
+        startActivity(new Intent(this, ImmersiveActivity.class));}
 
 
 }
