@@ -37,26 +37,26 @@ public class StattuBarUtil {
             //这种设置全屏的模式会把状态栏也遮挡
             //window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
             window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            ViewGroup decorView = (ViewGroup) window.getDecorView();
+           /* ViewGroup decorView = (ViewGroup) window.getDecorView();
 
             int statuBarHight = getStatusBarHeight(ac);
             //View会遮挡内容页,可以在布局文件的根布局添加  android:fitsSystemWindows="true"
             View view = new View(ac);
             ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, statuBarHight);
             view.setLayoutParams(params);
-            view.setBackgroundColor(color);
+            //view.setBackgroundColor(color);
 
 
             decorView.addView(view);
 
             ViewGroup contentView = decorView.findViewById(android.R.id.content);
             //第一种方式
-          /* View acticityView = contentView.getChildAt(0);
-             acticityView.setFitsSystemWindows(true);*/
+          *//* View acticityView = contentView.getChildAt(0);
+             acticityView.setFitsSystemWindows(true);*//*
 
 
             //第二种方式
-            contentView.setPadding(0, statuBarHight, 0, 0);
+            contentView.setPadding(0, statuBarHight, 0, 0);*/
         }
     }
 
