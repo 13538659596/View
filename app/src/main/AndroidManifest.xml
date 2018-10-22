@@ -40,6 +40,10 @@
         </activity>
         <activity android:name=".ListView.ImmersiveActivity">
         </activity>
+        <activity android:name=".ListView.BehaviorActivity">
+        </activity>
+        <activity android:name=".ListView.RecyclerViewActivity">
+        </activity>
     </application>
 
 </manifest>

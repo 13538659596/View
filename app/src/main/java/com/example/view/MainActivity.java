@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.view.ListView.BehaviorActivity;
 import com.example.view.ListView.ColorTextActivity;
 import com.example.view.ListView.DragHelpActivity;
 import com.example.view.ListView.ImmersiveActivity;
@@ -11,6 +12,7 @@ import com.example.view.ListView.ListpicActivity;
 import com.example.view.ListView.QQScrollActivity;
 import com.example.view.ListView.QQStepActivirt;
 import com.example.view.ListView.RatingBarActivity;
+import com.example.view.ListView.RecyclerViewActivity;
 import com.example.view.ListView.ScrollActivity;
 import com.example.view.ListView.ShapeActivity;
 import com.example.view.ListView.StreamingLayoutActivity;
@@ -83,6 +85,16 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.button12)
     public void statuBar() {
         startActivity(new Intent(this, ImmersiveActivity.class));}
+
+    @OnClick(R.id.button13)
+    public void studyBehavior() {
+        startActivity(new Intent(this, BehaviorActivity.class));}
+
+    @OnClick(R.id.button14)
+    public void recycler() {
+        startActivity(new Intent(this, RecyclerViewActivity.class));}
+
+
 
 
 }
