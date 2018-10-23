@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import com.example.view.R;
@@ -51,10 +52,13 @@ public class RecyclerViewActivity extends AppCompatActivity implements View.OnCl
             //添加分隔线
             mRecyclerView.addItemDecoration(new RecyclerViewListDecration(this, R.drawable.divid_item));
         }else {
-            mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+            GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 6);
+            mRecyclerView.setLayoutManager(gridLayoutManager);
+
+            Log.e(">>>>>>>",  gridLayoutManager.getSpanCount() + " 列数");
             mRecyclerView.setAdapter(new RecyclerViewAdaper(this, items));
             //添加分隔线
-            mRecyclerView.addItemDecoration(new RecyclerViewGrideDecration(this, R.drawable.divid_item));
+            mRecyclerView.addItemDecoration(new RecyclerViewGrideDecration(this, R.drawable.divid_item, gridLayoutManager.getSpanCount()));
         }
     }
 }
