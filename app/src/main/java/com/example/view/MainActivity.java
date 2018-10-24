@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.view.ListView.Animo1Activity;
 import com.example.view.ListView.BehaviorActivity;
 import com.example.view.ListView.ColorTextActivity;
 import com.example.view.ListView.DragHelpActivity;
@@ -94,7 +95,8 @@ public class MainActivity extends BaseActivity {
     public void recycler() {
         startActivity(new Intent(this, RecyclerViewActivity.class));}
 
-
-
+    @OnClick(R.id.button15)
+    public void animo1() {
+        startActivity(new Intent(this, Animo1Activity.class));}
 
 }

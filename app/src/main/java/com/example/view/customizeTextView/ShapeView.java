@@ -7,8 +7,11 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.example.view.R;
 
 /**
  * Created by 胡冬 on 2018/9/23.
@@ -63,12 +66,15 @@ public class ShapeView extends View{
         RectF rect = new RectF(0, 0, getMeasuredWidth(), getMeasuredHeight());
         switch (currentShape) {
             case CIRCLE:
+                mPaint.setColor(ContextCompat.getColor(getContext(), R.color.circle));
                 canvas.drawArc(rect, 0, 360, false, mPaint);
                 break;
             case RECT:
+                mPaint.setColor(ContextCompat.getColor(getContext(), R.color.rect));
                 canvas.drawRect(rect, mPaint);
                 break;
             case TRIANGLE:
+                mPaint.setColor(ContextCompat.getColor(getContext(), R.color.triangle));
                 //将等腰三角形画成等边三角形
                /* mPath.moveTo(getMeasuredWidth() / 2, 0);
                 mPath.lineTo(0,getMeasuredHeight());
@@ -98,5 +104,9 @@ public class ShapeView extends View{
                 break;
         }
         invalidate();
+    }
+
+    public Shape getCurrentShape() {
+        return currentShape;
     }
 }
