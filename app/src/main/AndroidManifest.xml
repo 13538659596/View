@@ -46,6 +46,8 @@
         </activity>
         <activity android:name=".ListView.Animo1Activity">
         </activity>
+        <activity android:name=".ListView.PopuViewActivity">
+        </activity>
     </application>
 
 </manifest>

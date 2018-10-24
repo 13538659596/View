@@ -10,6 +10,7 @@ import com.example.view.ListView.ColorTextActivity;
 import com.example.view.ListView.DragHelpActivity;
 import com.example.view.ListView.ImmersiveActivity;
 import com.example.view.ListView.ListpicActivity;
+import com.example.view.ListView.PopuViewActivity;
 import com.example.view.ListView.QQScrollActivity;
 import com.example.view.ListView.QQStepActivirt;
 import com.example.view.ListView.RatingBarActivity;
@@ -98,5 +99,9 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.button15)
     public void animo1() {
         startActivity(new Intent(this, Animo1Activity.class));}
+
+    @OnClick(R.id.button16)
+    public void popu() {
+        startActivity(new Intent(this, PopuViewActivity.class));}
 
 }
