@@ -44,6 +44,18 @@ public class MenuAdapater extends BaseMenuAdapter{
         // 真正开发过程中，不同的位置显示的布局不一样
         TextView menuView = (TextView) LayoutInflater.from(context).inflate(R.layout.ui_list_data_screen_menu,parent,false);
         menuView.setText(items.get(position));
+        menuView.setTextColor(context.getResources().getColor(R.color.balck));
         return menuView;
+    }
+
+    @Override
+    public void menuClose(View tabView) {
+        tabView.setBackgroundColor(context.getResources().getColor(R.color.material_grey_50));
+        ((TextView)tabView).setTextColor(context.getResources().getColor(R.color.balck));}
+
+    @Override
+    public void menuOpen(View tabView) {
+        tabView.setBackgroundColor(context.getResources().getColor(R.color.colorGreen));
+        ((TextView)tabView).setTextColor(context.getResources().getColor(R.color.startColor));
     }
 }
