@@ -27,6 +27,8 @@ public class PopuViewActivity extends BaseActivity {
         items.add("类型");
         items.add("品牌");
         items.add("价格");
+        items.add("颜色");
+        items.add("尺寸");
         items.add("更多");
         MenuAdapater adapater = new MenuAdapater(this, items);
         popuView.setAdapter(adapater);

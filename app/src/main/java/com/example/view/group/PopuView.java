@@ -260,7 +260,7 @@ public class PopuView extends LinearLayout implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        Log.e("=======", "    onClick");
+      //  Log.e("=======", "    onClick");
         closeMenu();
     }
 }
