@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.view.ListView.Animo1Activity;
+import com.example.view.ListView.Animo2Activity;
 import com.example.view.ListView.BehaviorActivity;
 import com.example.view.ListView.ColorTextActivity;
 import com.example.view.ListView.DragHelpActivity;
@@ -103,5 +104,10 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.button16)
     public void popu() {
         startActivity(new Intent(this, PopuViewActivity.class));}
+
+    @OnClick(R.id.button17)
+    public void animo2() {
+        startActivity(new Intent(this, Animo2Activity.class));}
+
 
 }
