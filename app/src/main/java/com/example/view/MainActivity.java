@@ -8,8 +8,10 @@ import com.example.view.ListView.Animo1Activity;
 import com.example.view.ListView.Animo2Activity;
 import com.example.view.ListView.BehaviorActivity;
 import com.example.view.ListView.ColorTextActivity;
+import com.example.view.ListView.DragActivity;
 import com.example.view.ListView.DragHelpActivity;
 import com.example.view.ListView.ImmersiveActivity;
+import com.example.view.ListView.LikeActivity;
 import com.example.view.ListView.ListpicActivity;
 import com.example.view.ListView.PopuViewActivity;
 import com.example.view.ListView.QQScrollActivity;
@@ -109,5 +111,12 @@ public class MainActivity extends BaseActivity {
     public void animo2() {
         startActivity(new Intent(this, Animo2Activity.class));}
 
+    @OnClick(R.id.button18)
+    public void drag() {
+        startActivity(new Intent(this, DragActivity.class));}
+
+    @OnClick(R.id.button19)
+    public void like() {
+        startActivity(new Intent(this, LikeActivity.class));}
 
 }

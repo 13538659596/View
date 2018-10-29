@@ -50,6 +50,10 @@
         </activity>
         <activity android:name=".ListView.Animo2Activity">
         </activity>
+        <activity android:name=".ListView.DragActivity">
+        </activity>
+        <activity android:name=".ListView.LikeActivity">
+        </activity>
     </application>
 
 </manifest>
