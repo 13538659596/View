@@ -10,6 +10,7 @@ import android.graphics.Paint.FontMetricsInt;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.widget.TextView;
 
@@ -28,11 +29,7 @@ public class MyTextView extends TextView{
 	private int mTextColor = Color.BLACK;
 	private Paint mPaint;
 
-	public MyTextView(Context context, AttributeSet attrs, int defStyleAttr,
-					  int defStyleRes) {
-		super(context, attrs, defStyleAttr, defStyleRes);
-		// TODO Auto-generated constructor stub
-	}
+
 
 	//在布局文件中使用，但是会有style
 	public MyTextView(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -157,6 +154,10 @@ public class MyTextView extends TextView{
 	public boolean onTouchEvent(MotionEvent event) {
 		// TODO Auto-generated method stub
 		return super.onTouchEvent(event);
+	}
+
+	private int dip2px(int dip) {
+		return(int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, getResources().getDisplayMetrics());
 	}
 }
 
